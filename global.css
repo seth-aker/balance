@@ -133,6 +133,134 @@
 
 @layer base {
     :root {
+      --color-background: #FFF;
+      --color-background-dark: #1C1C1C;
+      --color-green-1: #fafefa;
+      --color-green-2: #f4fbf5;
+      --color-green-3: #e6f8e7;
+      --color-green-4: #d5f2d8;
+      --color-green-5: #c2ebc5;
+      --color-green-6: #a9e1ae;
+      --color-green-7: #86d290;
+      --color-green-8: #4ebe63;
+      --color-green-9: #00a63e;
+      --color-green-10: #009835;
+      --color-green-11: #008229;
+      --color-green-12: #193e1f;
+
+      --color-green-a1: #00cc0005;
+      --color-green-a2: #00a3180b;
+      --color-green-a3: #00b80b19;
+      --color-green-a4: #00b1132a;
+      --color-green-a5: #00ac0d3d;
+      --color-green-a6: #00a70f56;
+      --color-green-a7: #00a11679;
+      --color-green-a8: #00a21eb1;
+      --color-green-a9: #00a63e;
+      --color-green-a10: #009835;
+      --color-green-a11: #008229;
+      --color-green-a12: #002907e6;
+
+      --color-green-contrast: #fff;
+      --color-green-surface: #f1faf3cc;
+      --color-green-indicator: #00a63e;
+      --color-green-track: #00a63e;
+
+      --color-gray-1: #fcfcfc;
+      --color-gray-2: #f9f9f9;
+      --color-gray-3: #efefef;
+      --color-gray-4: #e8e8e8;
+      --color-gray-5: #e0e0e0;
+      --color-gray-6: #d8d8d8;
+      --color-gray-7: #cecece;
+      --color-gray-8: #bbb;
+      --color-gray-9: #8d8d8d;
+      --color-gray-10: #838383;
+      --color-gray-11: #646464;
+      --color-gray-12: #202020;
+
+      --color-gray-a1: #00000003;
+      --color-gray-a2: #00000006;
+      --color-gray-a3: #00000010;
+      --color-gray-a4: #00000017;
+      --color-gray-a5: #0000001f;
+      --color-gray-a6: #00000027;
+      --color-gray-a7: #00000031;
+      --color-gray-a8: #00000044;
+      --color-gray-a9: #00000072;
+      --color-gray-a10: #0000007c;
+      --color-gray-a11: #0000009b;
+      --color-gray-a12: #000000df;
+
+      --color-gray-contrast: #FFFFFF;
+      --color-gray-surface: #ffffffcc;
+      --color-gray-indicator: #8d8d8d;
+      --color-gray-track: #8d8d8d;
+
+
+      --dark-green-1: #171e17;
+      --dark-green-2: #1b221b;
+      --dark-green-3: #1f3221;
+      --dark-green-4: #1e4123;
+      --dark-green-5: #224e29;
+      --dark-green-6: #275c30;
+      --dark-green-7: #2b6c37;
+      --dark-green-8: #2f7d3e;
+      --dark-green-9: #00a63e;
+      --dark-green-10: #009930;
+      --dark-green-11: #58d570;
+      --dark-green-12: #b6f4bc;
+
+      --dark-green-a1: #00c60003;
+      --dark-green-a2: #00f70007;
+      --dark-green-a3: #3bfd5019;
+      --dark-green-a4: #29fd472a;
+      --dark-green-a5: #37fc5739;
+      --dark-green-a6: #43ff6348;
+      --dark-green-a7: #47ff695a;
+      --dark-green-a8: #49ff6c6d;
+      --dark-green-a9: #00fe549c;
+      --dark-green-a10: #00fe408d;
+      --dark-green-a11: #66ff83d0;
+      --dark-green-a12: #beffc4f3;
+
+      --dark-green-contrast: #fff;
+      --dark-green-surface: #1b281b80;
+      --dark-green-indicator: #00a63e;
+      --dark-green-track: #00a63e;
+
+      --dark-gray-1: #1c1c1c;
+      --dark-gray-2: #232323;
+      --dark-gray-3: #2c2c2c;
+      --dark-gray-4: #323232;
+      --dark-gray-5: #383838;
+      --dark-gray-6: #404040;
+      --dark-gray-7: #4d4d4d;
+      --dark-gray-8: #636363;
+      --dark-gray-9: #707070;
+      --dark-gray-10: #7c7c7c;
+      --dark-gray-11: #b4b4b4;
+      --dark-gray-12: #eee;
+
+      --dark-gray-a1: #00000000;
+      --dark-gray-a2: #ffffff08;
+      --dark-gray-a3: #ffffff12;
+      --dark-gray-a4: #ffffff19;
+      --dark-gray-a5: #ffffff1f;
+      --dark-gray-a6: #ffffff28;
+      --dark-gray-a7: #ffffff37;
+      --dark-gray-a8: #ffffff50;
+      --dark-gray-a9: #ffffff5e;
+      --dark-gray-a10: #ffffff6c;
+      --dark-gray-a11: #ffffffab;
+      --dark-gray-a12: #ffffffec;
+
+      --dark-gray-contrast: #FFFFFF;
+      --dark-gray-surface: rgba(0, 0, 0, 0.05);
+      --dark-gray-indicator: #707070;
+      --dark-gray-track: #707070;
+
+      
       --background: var(--color-background); /* Background... duh */
       --foreground: var(--color-gray-12); /* Things like text */
       --card: var(--color-green-1);

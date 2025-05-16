@@ -20,7 +20,7 @@ const useIsomorphicLayoutEffect =
 
 export default function RootLayout() {
   const hasMounted = React.useRef(false);
-    const { colorScheme, isDarkColorScheme } = useColorScheme();
+    const { isDarkColorScheme } = useColorScheme();
     const [isColorSchemeLoaded, setIsColorSchemeLoaded] = React.useState(false);
 
     useIsomorphicLayoutEffect(() => {
@@ -42,7 +42,7 @@ export default function RootLayout() {
   return (
     <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
       <Stack>
-        <Stack.Screen name="index" /> 
+        <Stack.Screen name="(tabs)" options={{headerShown: false}} /> 
       </Stack>
     </ThemeProvider>
   );

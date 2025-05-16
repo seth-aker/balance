@@ -15,7 +15,7 @@ export default function Index() {
     setInputValue(cleanedInput);
   }
     return (
-      <View className="flex justify-center items-center h-full w-full p-6">
+      <View className="flex justify-center items-center h-full w-full p-6 bg-primary">
         <Text className="color-white font-normal p-2">Input an amount:</Text>
         <Pressable className="flex items-center border-b-2 w-full border-white" onPress={() => inputRef.current?.focus()}>
           <View className="flex-row flex items-center justify-center">
@@ -32,8 +32,8 @@ export default function Index() {
             className="opacity-0 absolute" 
             returnKeyType="done"/>
         </Pressable>
-        <Button className="m-2" size='lg' variant='default' >
-          <Text>Confirm</Text>
+        <Button className="m-2" size='lg' variant='outline' >
+          <Text className="color-primary">Confirm</Text>
         </Button>
       </View>
     );
