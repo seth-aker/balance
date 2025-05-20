@@ -1,11 +1,11 @@
 export const NAV_THEME = {
     light: {
-      background: '#FFF', // background
+      background: '#00a63e', // background
       border: '#e8e8e8', // border
       card: 'hsl(0 0% 100%)', // card
       notification: 'hsl(0 84.2% 60.2%)', // destructive
-      primary: '#00a63e', // primary
-      text: '#202020', // foreground
+      primary: '#4ebe63', // primary
+      text: '#193e1f', // foreground
     },
     dark: {
       background: '#1C1C1C', // background

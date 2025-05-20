@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @theme {
-  --color-background: #FFF;
+
   --color-background-dark: #1C1C1C;
   --color-green-1: #fafefa;
   --color-green-2: #f4fbf5;
@@ -262,7 +262,7 @@
 
       
       --background: var(--color-background); /* Background... duh */
-      --foreground: var(--color-gray-12); /* Things like text */
+      --foreground: #FFF; /* Things like text */
       --card: var(--color-green-1);
       --card-foreground: var(--color-gray-12);
       --popover: var(--color-green-1);
@@ -300,7 +300,7 @@
       --destructive: 0 72% 51%;
       --destructive-foreground: 0 0% 98%;
       --border: var(--dark-gray-7);
-      --input: var(--dark-gray-7);
+      --input: var(--color-background);
       --ring: var(--dark-green-8);
     }
 }
