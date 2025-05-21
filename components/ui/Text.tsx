@@ -1,12 +1,13 @@
 import { cn } from '@/utils/cn';
 import * as Slot from '@rn-primitives/slot';
 import type { SlottableTextProps, TextRef } from '@rn-primitives/types';
+import { observer } from 'mobx-react-lite';
 import * as React from 'react';
 import { Text as RNText } from 'react-native';
 
 const TextClassContext = React.createContext<string | undefined>(undefined);
 
-const Text = React.forwardRef<TextRef, SlottableTextProps>(
+const Text = observer(React.forwardRef<TextRef, SlottableTextProps>(
   ({ className, asChild = false, ...props }, ref) => {
     const textClass = React.useContext(TextClassContext);
     const Component = asChild ? Slot.Text : RNText;
@@ -18,7 +19,8 @@ const Text = React.forwardRef<TextRef, SlottableTextProps>(
       />
     );
   }
-);
+));
 Text.displayName = 'Text';
 
 export { Text, TextClassContext };
+

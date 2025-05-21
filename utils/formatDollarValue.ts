@@ -1,4 +1,7 @@
-export const formatDollarValue = (value: string) => {
+export const formatDollarValue = (value: string | undefined) => {
+    if(!value || value === '') {
+      return `$0.00`
+    }
     const len = value.length
     switch (len) {
       case 0:

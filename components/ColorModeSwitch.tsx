@@ -4,16 +4,17 @@ import { Sun } from '@/components/ui/icons/Sun';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { cn } from '@/utils/cn';
 import * as SwitchPrimitives from '@rn-primitives/switch';
+import { observer } from 'mobx-react-lite';
 import * as React from 'react';
 import { Platform } from 'react-native';
 import Animated, {
-    interpolateColor,
-    useAnimatedStyle,
-    useDerivedValue,
-    withTiming,
+  interpolateColor,
+  useAnimatedStyle,
+  useDerivedValue,
+  withTiming,
 } from 'react-native-reanimated';
 
-const ColorSwitchWeb = React.forwardRef<SwitchPrimitives.RootRef, SwitchPrimitives.RootProps>(
+const ColorSwitchWeb = observer(React.forwardRef<SwitchPrimitives.RootRef, SwitchPrimitives.RootProps>(
   ({ className, ...props }, ref) => (
     <SwitchPrimitives.Root
       className={cn(
@@ -33,7 +34,7 @@ const ColorSwitchWeb = React.forwardRef<SwitchPrimitives.RootRef, SwitchPrimitiv
       />
     </SwitchPrimitives.Root>
   )
-);
+));
 
 ColorSwitchWeb.displayName = 'SwitchWeb';
 
@@ -48,7 +49,7 @@ const RGB_COLORS = {
   },
 } as const;
 
-const ColorSwitchNative = React.forwardRef<SwitchPrimitives.RootRef, SwitchPrimitives.RootProps>(
+const ColorSwitchNative = observer(React.forwardRef<SwitchPrimitives.RootRef, SwitchPrimitives.RootProps>(
   ({ className, ...props }, ref) => {
     const { colorScheme } = useColorScheme();
     const translateX = useDerivedValue(() => (props.checked ? 18 : 0));
@@ -80,14 +81,14 @@ const ColorSwitchNative = React.forwardRef<SwitchPrimitives.RootRef, SwitchPrimi
         >
           <Animated.View style={animatedThumbStyle}>
             <SwitchPrimitives.Thumb className={'h-7 w-7 rounded-full bg-background shadow-md shadow-foreground/25 ring-0 flex justify-center items-center'} >
-                {props.checked ? <MoonStar size={20} /> : <Sun size={20} />}
+                {props.checked ? <MoonStar size={20} className='text-[--dark-green-7]' /> : <Sun className='text-[--color-green-6]' size={20} />}
             </SwitchPrimitives.Thumb>
           </Animated.View>
         </SwitchPrimitives.Root>
       </Animated.View>
     );
   }
-);
+));
 ColorSwitchNative.displayName = 'SwitchNative';
 
 const ColorModeSwitch = Platform.select({

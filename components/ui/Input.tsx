@@ -1,8 +1,9 @@
 import { cn } from '@/utils/cn';
+import { observer } from 'mobx-react-lite';
 import * as React from 'react';
 import { TextInput, type TextInputProps } from 'react-native';
 
-const Input = React.forwardRef<React.ElementRef<typeof TextInput>, TextInputProps>(
+const Input = observer(React.forwardRef<React.ComponentRef<typeof TextInput>, TextInputProps>(
   ({ className, placeholderClassName, ...props }, ref) => {
     return (
       <TextInput
@@ -17,8 +18,9 @@ const Input = React.forwardRef<React.ElementRef<typeof TextInput>, TextInputProp
       />
     );
   }
-);
+));
 
 Input.displayName = 'Input';
 
 export { Input };
+

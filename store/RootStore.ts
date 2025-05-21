@@ -1,7 +1,9 @@
 import { Instance, SnapshotOut, types } from "mobx-state-tree";
+import { ITransactionStore, TransactionStoreModel } from "./TransactionStore";
 import { IUserStore, UserStoreModel } from "./UserStore";
 export const RootStoreModel = types.model({
-    userStore: types.optional(UserStoreModel, {} as IUserStore)
+    userStore: types.optional(UserStoreModel, {} as IUserStore),
+    transactionStore: types.optional(TransactionStoreModel, {} as ITransactionStore)
 })
 
 /**

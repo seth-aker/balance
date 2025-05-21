@@ -1,11 +1,12 @@
-import { HapticTab } from "@/components/HapticTab";
+import HapticTab from "@/components/HapticTab";
 import { Home } from "@/components/ui/icons/Home";
 import { Settings } from "@/components/ui/icons/Settings";
 import TabBarBackground from "@/components/ui/TabBarBackground";
 import { Tabs } from "expo-router";
+import { observer } from "mobx-react-lite";
 import { Platform } from "react-native";
 
-export default function TabLayout() {
+export default observer(function TabLayout() {
     return (
         <Tabs 
         screenOptions={{
@@ -35,4 +36,4 @@ export default function TabLayout() {
             />
         </Tabs>
     )
-}
+})

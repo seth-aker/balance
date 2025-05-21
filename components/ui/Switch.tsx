@@ -1,16 +1,17 @@
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { cn } from '@/utils/cn';
 import * as SwitchPrimitives from '@rn-primitives/switch';
+import { observer } from 'mobx-react-lite';
 import * as React from 'react';
 import { Platform } from 'react-native';
 import Animated, {
-    interpolateColor,
-    useAnimatedStyle,
-    useDerivedValue,
-    withTiming,
+  interpolateColor,
+  useAnimatedStyle,
+  useDerivedValue,
+  withTiming,
 } from 'react-native-reanimated';
 
-const SwitchWeb = React.forwardRef<SwitchPrimitives.RootRef, SwitchPrimitives.RootProps>(
+const SwitchWeb = observer(React.forwardRef<SwitchPrimitives.RootRef, SwitchPrimitives.RootProps>(
   ({ className, ...props }, ref) => (
     <SwitchPrimitives.Root
       className={cn(
@@ -30,7 +31,7 @@ const SwitchWeb = React.forwardRef<SwitchPrimitives.RootRef, SwitchPrimitives.Ro
       />
     </SwitchPrimitives.Root>
   )
-);
+));
 
 SwitchWeb.displayName = 'SwitchWeb';
 
@@ -45,7 +46,7 @@ const RGB_COLORS = {
   },
 } as const;
 
-const SwitchNative = React.forwardRef<SwitchPrimitives.RootRef, SwitchPrimitives.RootProps>(
+const SwitchNative = observer(React.forwardRef<SwitchPrimitives.RootRef, SwitchPrimitives.RootProps>(
   ({ className, ...props }, ref) => {
     const { colorScheme } = useColorScheme();
     const translateX = useDerivedValue(() => (props.checked ? 18 : 0));
@@ -84,7 +85,7 @@ const SwitchNative = React.forwardRef<SwitchPrimitives.RootRef, SwitchPrimitives
       </Animated.View>
     );
   }
-);
+));
 SwitchNative.displayName = 'SwitchNative';
 
 const Switch = Platform.select({
@@ -93,3 +94,4 @@ const Switch = Platform.select({
 });
 
 export { Switch };
+

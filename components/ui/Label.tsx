@@ -1,8 +1,9 @@
 import { cn } from '@/utils/cn';
 import * as LabelPrimitive from '@rn-primitives/label';
+import { observer } from 'mobx-react-lite';
 import * as React from 'react';
 
-const Label = React.forwardRef<LabelPrimitive.TextRef, LabelPrimitive.TextProps>(
+const Label = observer(React.forwardRef<LabelPrimitive.TextRef, LabelPrimitive.TextProps>(
   ({ className, onPress, onLongPress, onPressIn, onPressOut, ...props }, ref) => (
     <LabelPrimitive.Root
       className='web:cursor-default'
@@ -21,7 +22,8 @@ const Label = React.forwardRef<LabelPrimitive.TextRef, LabelPrimitive.TextProps>
       />
     </LabelPrimitive.Root>
   )
-);
+));
 Label.displayName = LabelPrimitive.Root.displayName;
 
 export { Label };
+

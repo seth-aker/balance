@@ -5,9 +5,9 @@ import { DarkTheme, DefaultTheme, Theme, ThemeProvider } from "@react-navigation
 import { Stack } from "expo-router";
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from "expo-status-bar";
+import { observer } from 'mobx-react-lite';
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Platform } from "react-native";
-import { SafeAreaProvider } from "react-native-safe-area-context";
 import "../global.css";
 
 const LIGHT_THEME: Theme = {
@@ -22,7 +22,7 @@ const useIsomorphicLayoutEffect =
     Platform.OS === 'web' && typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
 
-export default function RootLayout() {
+export default observer(function RootLayout() {
   SplashScreen.preventAutoHideAsync()
   const { rehydrated } = useInitialRootStore(() => {
     // This runs after the root store has been initialized and rehydrated.
@@ -53,16 +53,19 @@ export default function RootLayout() {
 
   const {userStore} = useStores()
   useEffect(() => {
-    userStore.fetch().then(() => {
+    if(userStore.userId === '' || userStore.userId === undefined) {
+      userStore.fetch().then(() => {
+        setLoading(false)
+      })
+    } else {
       setLoading(false)
-    })
+    }
   }, [])
 
   if (!isColorSchemeLoaded || !rehydrated || loading) {
     return null;
   }
   return (
-    <SafeAreaProvider>
       <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
           <Stack>
             <Stack.Screen name="(tabs)" options={{headerShown: false}} /> 
@@ -70,6 +73,5 @@ export default function RootLayout() {
           </Stack>
           <StatusBar />
       </ThemeProvider>
-    </SafeAreaProvider>
   );
-}
+})

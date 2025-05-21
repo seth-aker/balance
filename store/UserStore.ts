@@ -7,7 +7,7 @@ export const UserStoreModel = types.model({
     email: '',
     userId: '',
     colorPreference: ''
-}).actions(withSetPropAction)
+})
 .actions((store) => ({async fetch() {
     const res = await Service.fetchUser("/profile")
     if(res.error) {
@@ -16,7 +16,7 @@ export const UserStoreModel = types.model({
     }
     applySnapshot(store, res.data);
 
-}}));
+}})).actions(withSetPropAction);
 
 export interface IUserStore extends Instance<typeof UserStoreModel> {}
 export interface IUserStoreSnapshotIn extends SnapshotIn<typeof UserStoreModel> {}
