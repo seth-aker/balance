@@ -7,12 +7,13 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 import { useStores } from "@/store/helpers/useStores";
 import { useState } from 'react';
 import { Modal, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
 export default function SettingsTab() {
     const {userStore} = useStores();
     const {colorScheme, toggleColorScheme} = useColorScheme();
     const [modalOpen, setModalOpen] = useState(false)
+    const safeAreaInsets = useSafeAreaInsets();
     return (
         <SafeAreaView className="h-full w-full px-6 flex">
             <View className="w-full flex flex-row justify-between items-center">
@@ -33,17 +34,13 @@ export default function SettingsTab() {
             <Button onPress={() => setModalOpen(true)}>
                 <Text>Edit</Text>
             </Button>
-            <Modal 
-                className='bg-primary'
-                visible={modalOpen}
-                animationType='slide'
-                onRequestClose={() => setModalOpen(false)}>
-                <SafeAreaView>
+            <Modal visible={modalOpen} animationType='slide' onRequestClose={() => setModalOpen(false)} >
+                <View style={{ paddingTop: safeAreaInsets.top, paddingBottom: safeAreaInsets.bottom, paddingLeft: safeAreaInsets.left, paddingRight: safeAreaInsets.right}}>
                     <UserSettings />
-                    <Button onPress={() => setModalOpen(false)} >
-                        <Text>Close</Text>
-                    </Button>  
-                </SafeAreaView>    
+                    <Button  onPress={() => setModalOpen(false)}>
+                        <Text className='text-black'>Close</Text>
+                    </Button>
+                </View>
             </Modal>
         </SafeAreaView>
     )

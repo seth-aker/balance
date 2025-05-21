@@ -6,7 +6,7 @@ import { Label } from "../ui/Label";
 export function UserSettings() {
     const { userStore } = useStores();
     return (
-        <View className="w-screen h-screen flex p-6">
+        <View className="w-full flex py-6">
             <View className="flex">
                 <Label>First Name: </Label>
                 <Input 

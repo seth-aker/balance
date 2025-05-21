@@ -7,6 +7,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from "expo-status-bar";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Platform } from "react-native";
+import { SafeAreaProvider } from "react-native-safe-area-context";
 import "../global.css";
 
 const LIGHT_THEME: Theme = {
@@ -61,12 +62,14 @@ export default function RootLayout() {
     return null;
   }
   return (
-    <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-        <Stack>
-          <Stack.Screen name="(tabs)" options={{headerShown: false}} /> 
-          <Stack.Screen name="+not-found" />
-        </Stack>
-        <StatusBar />
-    </ThemeProvider>
+    <SafeAreaProvider>
+      <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+          <Stack>
+            <Stack.Screen name="(tabs)" options={{headerShown: false}} /> 
+            <Stack.Screen name="+not-found" />
+          </Stack>
+          <StatusBar />
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
