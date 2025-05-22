@@ -2,14 +2,15 @@ import { NAV_THEME } from "@/constants/themeColors";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { useInitialRootStore, useStores } from "@/store/helpers/useStores";
 import { DarkTheme, DefaultTheme, Theme, ThemeProvider } from "@react-navigation/native";
+import { PortalHost } from '@rn-primitives/portal';
 import { Stack } from "expo-router";
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from "expo-status-bar";
 import { observer } from 'mobx-react-lite';
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { Platform } from "react-native";
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import "../global.css";
-
 const LIGHT_THEME: Theme = {
   ...DefaultTheme,
   colors: NAV_THEME.light,
@@ -66,6 +67,8 @@ export default observer(function RootLayout() {
     return null;
   }
   return (
+    <>
+    <GestureHandlerRootView>
       <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
           <Stack>
             <Stack.Screen name="(tabs)" options={{headerShown: false}} /> 
@@ -73,5 +76,8 @@ export default observer(function RootLayout() {
           </Stack>
           <StatusBar />
       </ThemeProvider>
+    </GestureHandlerRootView>
+    <PortalHost />
+    </>
   );
 })

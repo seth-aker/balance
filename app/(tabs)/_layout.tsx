@@ -8,6 +8,7 @@ import { Platform } from "react-native";
 
 export default observer(function TabLayout() {
     return (
+        <>
         <Tabs 
         screenOptions={{
             headerShown: false,
@@ -15,8 +16,8 @@ export default observer(function TabLayout() {
             tabBarBackground: TabBarBackground,
             tabBarStyle: Platform.select({
                 ios: {
-                // Use a transparent background on iOS to show the blur effect
-                position: 'absolute',
+                    // Use a transparent background on iOS to show the blur effect
+                    position: 'absolute',
                 },
                 default: {},
             }),
@@ -33,7 +34,8 @@ export default observer(function TabLayout() {
                     title: 'Settings',
                     tabBarIcon: (props) => <Settings {...props} />
                 }}
-            />
+                />
         </Tabs>
+        </>
     )
 })

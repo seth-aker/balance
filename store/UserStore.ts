@@ -5,7 +5,7 @@ export const UserStoreModel = types.model({
     firstName: '',
     lastName: '',
     email: '',
-    userId: '',
+    userId: types.optional(types.identifier, ""),
     colorPreference: ''
 })
 .actions((store) => ({async fetch() {
