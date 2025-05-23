@@ -10,7 +10,7 @@ export const TransactionStoreModel = types.model({
 }).views((store) => ({
     get getBalanceActualCents() {
         return store.pendingTransactions.reduce((total, value) => {
-            return total + value.amountCents
+            return total - value.amountCents
         }, store.bankBalanceCents)
     }
 })).actions((store) => ({

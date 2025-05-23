@@ -1,28 +1,19 @@
 import { ColorModeSwitch } from '@/components/ColorModeSwitch';
-import UserSettingsModal from '@/components/forms/UserSettingsModal';
+import UserSettingsForm from '@/components/forms/UserSettingsForm';
 import { Button } from '@/components/ui/Button';
 import { Label } from "@/components/ui/Label";
+import { Modal, ModalContent, ModalTrigger } from '@/components/ui/Modal';
 import { Text } from "@/components/ui/Text";
 import { useColorScheme } from "@/hooks/useColorScheme";
 import { useStores } from "@/store/helpers/useStores";
-import { cssInterop } from 'nativewind';
 import { useState } from 'react';
-import { Modal, View } from "react-native";
+import { View } from "react-native";
 
 export default function SettingsTab() {
     const {userStore} = useStores();
     const {colorScheme, toggleColorScheme} = useColorScheme();
     const [modalOpen, setModalOpen] = useState(false)
     
-    cssInterop(Modal, {
-        className: {
-            target: 'style',
-            nativeStyleToProp: {
-                backgroundColor: 'backdropColor'
-            }
-
-        }
-    })
     return (
         <View className="h-full w-full flex py-safe px-6">
             <View className="w-full flex flex-row justify-between items-center pb-4">
@@ -40,10 +31,17 @@ export default function SettingsTab() {
                 <Label nativeID="email">Email: </Label>
                 <Text>{userStore.email}</Text>
             </View>
-            <Button onPress={() => setModalOpen(true)}>
-                <Text>Edit</Text>
-            </Button>
-            <UserSettingsModal visible={modalOpen} setModalOpen={setModalOpen} />
-        </View>
+            
+            <Modal open={modalOpen} onOpenChange={(value) => setModalOpen(value)}>
+                <ModalTrigger asChild>
+                    <Button onPress={() => setModalOpen(true)}>
+                        <Text>Edit</Text>
+                    </Button>
+                </ModalTrigger>
+                <ModalContent>
+                    <UserSettingsForm setModalOpen={setModalOpen} />
+                </ModalContent>
+            </Modal>
+            </View>
     )
 }

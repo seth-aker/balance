@@ -1,6 +1,6 @@
 import { useStores } from "@/store/helpers/useStores";
 import { observer } from "mobx-react-lite";
-import { Modal, ModalProps, View } from "react-native";
+import { ModalProps, View } from "react-native";
 import MoneyInput from "../MoneyInput";
 import { Button } from "../ui/Button";
 import { Input } from "../ui/Input";
@@ -20,8 +20,7 @@ export default observer(function UserSettings(props: UserSettingsModalProps) {
         }
     }
     return (
-        <Modal visible={props.visible} animationType='slide' className='bg-background'>
-            <View className='py-safe px-4'>
+            <View className='py-safe px-4 bg-background'>
                 <Text className='text-2xl'>Edit User</Text>
                 <View className="w-full flex py-6">
                     <View className="flex">
@@ -57,7 +56,5 @@ export default observer(function UserSettings(props: UserSettingsModalProps) {
                     <Text>Save</Text>
                 </Button>
             </View>
-        </Modal>
-        
     )
 })

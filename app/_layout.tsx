@@ -68,16 +68,16 @@ export default observer(function RootLayout() {
   }
   return (
     <>
-    <GestureHandlerRootView>
-      <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-          <Stack>
-            <Stack.Screen name="(tabs)" options={{headerShown: false}} /> 
-            <Stack.Screen name="+not-found" />
-          </Stack>
-          <StatusBar />
-      </ThemeProvider>
-    </GestureHandlerRootView>
-    <PortalHost />
+      <GestureHandlerRootView>
+        <ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+            <Stack>
+              <Stack.Screen name="(tabs)" options={{headerShown: false}} /> 
+              <Stack.Screen name="+not-found" />
+            </Stack>
+            <StatusBar />
+        </ThemeProvider>
+      </GestureHandlerRootView>
+      <PortalHost />
     </>
   );
 })

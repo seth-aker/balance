@@ -1,7 +1,9 @@
 import { cn } from '@/utils/cn';
 import * as DialogPrimitive from '@rn-primitives/dialog';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Animated, { SlideInDown, SlideOutDown } from 'react-native-reanimated';
+import { Button } from './Button';
+import { Text } from './Text';
 
 const Modal = DialogPrimitive.Root
 const ModalTrigger = DialogPrimitive.Trigger
@@ -35,7 +37,14 @@ function ModalContent({ children, portalHost, transparent, ...props}: DialogPrim
         <DialogPrimitive.Portal hostName={portalHost}>
             <Overlay className={cn(transparent ? 'bg-transparent' : 'bg-current', 'h-full flex justify-end')}>
                 <DialogPrimitive.Content className={props.className} {...props} >
-                    {children}
+                    <View className="w-full bg-secondary flex items-end rounded-t-3xl">
+                    <ModalClose asChild>
+                        <Button variant={'ghost'}>
+                        <Text>Cancel</Text>
+                        </Button>
+                    </ModalClose>
+                    </View>
+                        {children}
                 </DialogPrimitive.Content>
             </Overlay>
         </DialogPrimitive.Portal>
